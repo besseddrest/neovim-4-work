@@ -2,6 +2,7 @@ return {
   "Isrothy/neominimap.nvim",
   event = "User FilePost",
   -- Optional
+
   -- keys = {
   --   -- { "<leader>mm", "<cmd>Neominimap toggle<cr>", desc = "Toggle minimap" },
   --   -- { "<leader>no", "<cmd>Neominimap on<cr>", desc = "Enable minimap" },
@@ -23,7 +24,7 @@ return {
     vim.opt.sidescrolloff = 36 -- It's recommended to set a large value
     ---@type Neominimap.UserConfig
     vim.g.neominimap = {
-      auto_enable = true,
+      auto_enable = false,
     }
   end,
 }

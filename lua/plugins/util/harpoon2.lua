@@ -5,7 +5,7 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
   config = function()
     local harpoon = require "harpoon"
-    local notify = require "notify"
+    local notify = vim.notify
     local kmset = vim.keymap.set
 
     -- REQUIRED

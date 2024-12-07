@@ -10,7 +10,7 @@ local custom = {
 }
 
 M.nvdash = {
-  load_on_startup = true,
+  load_on_startup = false,
   header = {
     -- "                                                     ",
     -- "  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ",
@@ -41,7 +41,7 @@ M.nvdash = {
 }
 
 M.base46 = {
-  theme = "onenord",
+  theme = "onedark",
   transparency = true,
   telescope = { style = "bordered" },
 
@@ -64,7 +64,7 @@ M.base46 = {
     -- DashboardMruTitle = { link = "DashboardHeader" },
     -- DashboardFooter = { link = "DashboardHeader" },
     -- DashboardShortCutIcon = { link = "DashboardHeader" },
-    -- NotifyBackground = { bg = "orange" },
+    NotifyBackground = { bg = "#000000" },
     -- TelescopePromptCounter = { fg = "orange" },
     MiniIndentscopeSymbol = { fg = { "yellow", 0 } },
     -- WhichKeyNormal = { bg = { "black", 0 } },
