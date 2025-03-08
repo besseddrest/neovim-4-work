@@ -6,7 +6,7 @@ return {
     local animate = require "mini.animate"
     require("mini.animate").setup {
       cursor = {
-        enable = false,
+        enable = true,
       },
       scroll = {
         timing = animate.gen_timing.linear { duration = 100, unit = "total" },

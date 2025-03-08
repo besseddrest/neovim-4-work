@@ -41,16 +41,16 @@ M.nvdash = {
 }
 
 M.base46 = {
-  theme = "onedark",
+  theme = "rosepine",
   transparency = true,
   telescope = { style = "bordered" },
 
   hl_override = {
     NvDashAscii = { fg = { "yellow", -10 } },
+    TelescopeSelection = { bg = { "purple", -30 } },
     -- NvDashButtons = { fg = { "blue", -5 } },
     -- Comment = { italic = true, fg = custom.lightgrey },
     -- ["@comment"] = { italic = true, fg = custom.lightgrey },
-    -- TelescopeBorder = { fg = "white" },
     -- TelescopePromptBorder = { link = "TelescopeBorder" },
     -- TelescopeSelection = { fg = "green" },
     -- Visual = { bg = custom.grey },
@@ -59,6 +59,7 @@ M.base46 = {
   },
 
   hl_add = {
+    -- SnacksDashboardHeader = { link = "NONE", fg = "orange" },
     -- DashboardHeader = { fg = { "yellow", -10 } },
     -- DashboardProjectTitle = { link = "DashboardHeader" },
     -- DashboardMruTitle = { link = "DashboardHeader" },

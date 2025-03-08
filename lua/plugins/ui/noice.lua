@@ -1,6 +1,5 @@
 return {
   "folke/noice.nvim",
-  version = "4.4.7",
   event = "UIEnter",
   opts = {
     presets = { inc_rename = true },

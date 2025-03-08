@@ -1,4 +1,3 @@
--- require "nvchad.mappings"
 local map = vim.keymap.set
 
 -- Remap 'Q' to 'q'
@@ -42,6 +41,8 @@ map("x", "<leader>p", "_dP")
 
 -- window
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 
 -- (f)or(m)at
@@ -57,6 +58,8 @@ map("v", "<leader>/", "gc", { desc = "comment toggle", remap = true })
 map({ "n", "t" }, "<A-h>", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal new horizontal term" })
+
+map({ "t" }, "<A-k>", "<C-w>k", { desc = "terminal focus window up" })
 
 map({ "n", "t" }, "<A-v>", function()
   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
@@ -86,22 +89,27 @@ map("n", "<leader>bv", "<cmd>vsplit | enew<CR>", { desc = "Buffer new vertical s
 -- DadBod: (db)UI
 map("n", "<leader>db", "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>", { desc = "DBUI toggle" })
 
--- NvimTree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree Toggle" })
+-- MiniFiles
+map("n", "<C-n>", "<cmd>lua MiniFiles.open()<cr>", { desc = "MiniFiles Toggle" })
 
 -- Telescope
-map(
-  "n",
-  "<leader>G",
-  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-  { desc = "Live Grep" }
-)
-map("n", "<leader>R", "<cmd>Telescope resume<CR>", { desc = "Resume Live Grep" })
-map("n", "<leader>F", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
-map("n", "<leader>T", "<cmd>Telescope themes<CR>", { desc = "Themes" })
-map("n", "<leader>N", "<cmd>Telescope notify<CR>", { desc = "Notify" })
-map("n", "<leader>L", "<cmd>Telescope highlights<CR>", { desc = "Highlights" })
-map("n", "<leader>B", "<cmd>Telescope buffers<CR>", { desc = "Buffers List" })
+map("n", "<leader>G", "<cmd>lua Snacks.picker.grep()<CR>", { desc = "Live Grep" })
+map("n", "<leader>R", "<cmd>lua Snacks.picker.resume()<cr>", { desc = "Resume Picker" })
+map("n", "<leader>F", "<cmd>lua Snacks.picker.files()<cr>", { desc = "Find Files" })
+map("n", "<leader>B", "<cmd>lua Snacks.picker.buffers()<cr>", { desc = "Buffers List" })
+map("n", "<leader>L", "<cmd>lua Snacks.picker.highlights()<cr>", { desc = "Highlights" })
+map("n", "<leader>T", function()
+  require("nvchad.themes").open {
+    border = true,
+  }
+end, { desc = "Themes" })
+
+-- map("n", "<leader>R", "<cmd>Telescope resume<CR>", { desc = "Resume Live Grep" })
+-- map("n", "<leader>F", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
+-- map("n", "<leader>T", "<cmd>Telescope themes<CR>", { desc = "Themes" })
+-- map("n", "<leader>N", "<cmd>Telescope notify<CR>", { desc = "Notify" })
+-- map("n", "<leader>L", "<cmd>Telescope highlights<CR>", { desc = "Highlights" })
+-- map("n", "<leader>B", "<cmd>Telescope buffers<CR>", { desc = "Buffers List" })
 
 -- Neogit
 -- map("n", "<leader>ng", "<cmd>Neogit<CR>", { desc = "Neogit" })

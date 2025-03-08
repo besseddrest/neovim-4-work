@@ -15,6 +15,17 @@ vim.api.nvim_create_autocmd("BufLeave", {
   end,
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+  -- pattern = "rosepine",
+  -- group = ...,
+  callback = function()
+    vim.api.nvim_set_hl(0, "CopilotSuggestion", {
+      fg = "skyblue",
+      ctermfg = 8,
+      force = true,
+    })
+  end,
+})
 -- autocmds from gale
 vim.api.nvim_create_autocmd("Filetype", {
   desc = "Prevent <Tab>/<S-Tab> from switching specific buffers.",
