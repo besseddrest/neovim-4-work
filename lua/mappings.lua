@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 -- Remap 'Q' to 'q'
-vim.cmd "cabbrev Q q"
-vim.cmd "cabbrev Qa qa"
+vim.cmd("cabbrev Q q")
+vim.cmd("cabbrev Qa qa")
 
 -- NOTE: THE BASICS, BUT ENHANCED
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -25,7 +25,7 @@ map("n", "<leader>nh", "<CMD>noh<CR>", { desc = "Hide Search Matches" })
 
 -- (i)nlay hints
 map("n", "<leader>i", function()
-  vim.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	vim.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Inlay Hint Toggle" })
 
 -- (f)ind and (r)eplace
@@ -33,7 +33,7 @@ map("n", "<leader>fr", ":%s/", { desc = "Find/Search and Replace" })
 
 -- (o)pen (d)iagnostic float
 map("n", "<leader>od", function()
-  return vim.diagnostic.open_float { width = 50 }
+	return vim.diagnostic.open_float({ width = 50 })
 end)
 
 -- greatest remap ever (ThePrimeagen)
@@ -47,7 +47,7 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 
 -- (f)or(m)at
 map("n", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+	require("conform").format({ lsp_fallback = true })
 end, { desc = "format files" })
 
 -- comments
@@ -55,15 +55,18 @@ map("n", "<leader>/", "gcc", { desc = "comment toggle", remap = true })
 map("v", "<leader>/", "gc", { desc = "comment toggle", remap = true })
 
 -- terminals
-map({ "n", "t" }, "<A-h>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
-end, { desc = "terminal new horizontal term" })
-
-map({ "t" }, "<A-k>", "<C-w>k", { desc = "terminal focus window up" })
-
-map({ "n", "t" }, "<A-v>", function()
-  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
-end, { desc = "terminal toggleable vertical term" })
+map({ "n", "t" }, "<A-t>", function()
+	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
+end, { desc = "terminal toggle floating term" })
+-- map({ "n", "t" }, "<A-h>", function()
+--   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+-- end, { desc = "terminal new horizontal term" })
+--
+-- map({ "t" }, "<A-k>", "<C-w>k", { desc = "terminal focus window up" })
+--
+-- map({ "n", "t" }, "<A-v>", function()
+--   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+-- end, { desc = "terminal toggleable vertical term" })
 
 -- move line
 -- map("n", "<C-j>", ":m .+1<CR>==") -- move line up(n)
@@ -99,9 +102,9 @@ map("n", "<leader>F", "<cmd>lua Snacks.picker.files()<cr>", { desc = "Find Files
 map("n", "<leader>B", "<cmd>lua Snacks.picker.buffers()<cr>", { desc = "Buffers List" })
 map("n", "<leader>L", "<cmd>lua Snacks.picker.highlights()<cr>", { desc = "Highlights" })
 map("n", "<leader>T", function()
-  require("nvchad.themes").open {
-    border = true,
-  }
+	require("nvchad.themes").open({
+		border = true,
+	})
 end, { desc = "Themes" })
 
 -- map("n", "<leader>R", "<cmd>Telescope resume<CR>", { desc = "Resume Live Grep" })
