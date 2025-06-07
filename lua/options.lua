@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 local o = vim.o
 local opt = vim.opt
@@ -24,6 +24,9 @@ o.textwidth = 80
 o.number = true
 o.numberwidth = 2
 o.ruler = true
+o.autoindent = false
+o.smartindent = false
+o.cindent = false
 
 -- new things
 opt.title = true
@@ -32,6 +35,6 @@ opt.showcmd = true
 opt.scrolloff = 10
 opt.inccommand = "split"
 opt.backspace = { "start", "eol", "indent" }
-opt.path:append { "**" }
-opt.wildignore:append { "*/node_modules/*" }
-opt.formatoptions:append { "r" }
+opt.path:append({ "**" })
+opt.wildignore:append({ "*/node_modules/*" })
+opt.formatoptions:append({ "r" })

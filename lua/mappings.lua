@@ -97,7 +97,7 @@ map("n", "<C-n>", "<cmd>lua MiniFiles.open()<cr>", { desc = "MiniFiles Toggle" }
 
 -- Telescope
 map("n", "<leader>G", "<cmd>lua Snacks.picker.grep()<CR>", { desc = "Live Grep" })
-map("n", "<leader>R", "<cmd>lua Snacks.picker.resume()<cr>", { desc = "Resume Picker" })
+map("n", "<leader>R", "<cmd>lua Snacks.picker.recent()<cr>", { desc = "Recent Picker" })
 map("n", "<leader>F", "<cmd>lua Snacks.picker.files()<cr>", { desc = "Find Files" })
 map("n", "<leader>B", "<cmd>lua Snacks.picker.buffers()<cr>", { desc = "Buffers List" })
 map("n", "<leader>L", "<cmd>lua Snacks.picker.highlights()<cr>", { desc = "Highlights" })

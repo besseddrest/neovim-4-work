@@ -2,6 +2,7 @@ return {
 	-- language related
 	{ import = "plugins.lang.ts-autotag" },
 	{ import = "plugins.lang.ts-comments" },
+	{ import = "plugins.lang.flutter-tools" },
 
 	-- ui
 	{ import = "plugins.ui.snacks" },
