@@ -19,8 +19,8 @@ return {
 			require("lspconfig").html.setup({})
 			require("lspconfig").jsonls.setup({})
 			require("lspconfig").markdown_oxide.setup({})
-			require("lspconfig").dartls.setup({
-				cmd = { "dart", "language-server", "--protocol=lsp" },
+			require("lspconfig").qmlls.setup({
+				cmd = { "qmlls", "-E" },
 			})
 			-- vim.list_contains();
 		end,

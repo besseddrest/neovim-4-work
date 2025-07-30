@@ -19,6 +19,7 @@ M.base46 = {
 	telescope = { style = "bordered" },
 
 	hl_override = {
+		StatusLine = { bg = { "black", 0 } },
 		NvDashAscii = { fg = { "yellow", -10 } },
 		TelescopeSelection = { bg = { "purple", -30 } },
 		-- NvDashButtons = { fg = { "blue", -5 } },
@@ -32,6 +33,7 @@ M.base46 = {
 	},
 
 	hl_add = {
+
 		-- SnacksDashboardHeader = { link = "NONE", fg = "pink" },
 		-- DashboardHeader = { fg = { "yellow", -10 } },
 		-- DashboardProjectTitle = { link = "DashboardHeader" },

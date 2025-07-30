@@ -36,6 +36,8 @@ map("n", "<leader>od", function()
 	return vim.diagnostic.open_float({ width = 50 })
 end)
 
+map("n", "gd", "<cmd>lua vim.lsp.buf.preview()<CR>", { noremap = true, silent = true })
+
 -- greatest remap ever (ThePrimeagen)
 map("x", "<leader>p", "_dP")
 
@@ -94,6 +96,9 @@ map("n", "<leader>db", "<cmd>tabnew<cr><bar><bar><cmd>DBUI<cr>", { desc = "DBUI 
 
 -- MiniFiles
 map("n", "<C-n>", "<cmd>lua MiniFiles.open()<cr>", { desc = "MiniFiles Toggle" })
+
+-- NvimTree
+map("n", "<C-s>", "<cmd>NvimTreeToggle<cr>", { desc = "Nvim Tree Toggle" })
 
 -- Telescope
 map("n", "<leader>G", "<cmd>lua Snacks.picker.grep()<CR>", { desc = "Live Grep" })

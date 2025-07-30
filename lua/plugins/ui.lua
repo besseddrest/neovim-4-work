@@ -46,7 +46,7 @@ return {
 	},
 
 	-- file managing , picker etc
-	-- { import = "plugins.util.tree" },
+	{ import = "plugins.util.tree" },
 	{ import = "plugins.util.which-key" },
 	{ import = "plugins.lang.conform" },
 
