@@ -1,18 +1,18 @@
 local augroup = vim.api.nvim_create_augroup
-local utils = require("besseddrest.utils")
+local utils = require("utils")
 local buf_map = utils.buf_map
 
 -- Neovim 0.11 lsp autocomplete, etc
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(ev)
-		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		if client:supports_method("textDocument/completion") then
-			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
-
-			vim.cmd("highlight @comment gui=italic cterm=italic")
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	callback = function(ev)
+-- 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+-- 		if client:supports_method("textDocument/completion") then
+-- 			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+--
+-- 			vim.cmd("highlight @comment gui=italic cterm=italic")
+-- 		end
+-- 	end,
+-- })
 
 -- not autocmd but find a place for this later
 vim.diagnostic.config({

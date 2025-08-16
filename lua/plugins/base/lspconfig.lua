@@ -45,6 +45,7 @@ return {
 			"jsonls",
 			"bashls",
 			"jdtls",
+            "qmlls",
 		}
 
 		-- lsps with default config

@@ -32,7 +32,7 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require("nvchad.autocmds")
-require("besseddrest.autocmds")
+require("autocmds")
 
 -- After loading your colorscheme
 -- local comment_hl = vim.api.nvim_get_hl(0, { name = "Comment" })

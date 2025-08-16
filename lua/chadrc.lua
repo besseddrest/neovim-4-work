@@ -51,6 +51,12 @@ M.base46 = {
 	},
 }
 
+M.cmp = {
+	completion = {
+		autocomplete = false,
+	},
+}
+
 M.ui = {
 	--     cmp = {
 	--         lspkind_text = true,
