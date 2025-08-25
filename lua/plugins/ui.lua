@@ -66,14 +66,14 @@ return {
 	-- 	end,
 	-- },
 
-	-- { import = "plugins.base.mason" },
+	{ import = "plugins.base.mason" },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("configs.lspconfig")
 		end,
 	},
-    { import = "nvchad.blink.lazyspec" },
+	{ import = "nvchad.blink.lazyspec" },
 	-- { import = "plugins.base.nvim-lspconfig" },
 	--
 	-- { import = "plugins.util.completion" },

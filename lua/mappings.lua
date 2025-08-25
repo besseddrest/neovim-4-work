@@ -48,9 +48,9 @@ map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 
 -- (f)or(m)at
-map("n", "<leader>fm", function()
-	require("conform").format({ lsp_fallback = true })
-end, { desc = "format files" })
+-- map("n", "<leader>fm", function()
+-- 	require("conform").format({ lsp_fallback = true })
+-- end, { desc = "format files" })
 
 -- comments
 map("n", "<leader>/", "gcc", { desc = "comment toggle", remap = true })
