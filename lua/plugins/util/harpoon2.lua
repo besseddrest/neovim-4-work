@@ -21,16 +21,16 @@ return {
       notify "Harpoon'd"
     end)
 
-    kmset("n", "<leader>1", function()
+    kmset("n", "<leader>h1", function()
       harpoon:list():select(1)
     end)
-    kmset("n", "<leader>2", function()
+    kmset("n", "<leader>h2", function()
       harpoon:list():select(2)
     end)
-    kmset("n", "<leader>3", function()
+    kmset("n", "<leader>h3", function()
       harpoon:list():select(3)
     end)
-    kmset("n", "<leader>4", function()
+    kmset("n", "<leader>h4", function()
       harpoon:list():select(4)
     end)
     kmset("n", "<leader>H", function()
@@ -54,15 +54,15 @@ return {
       end
 
       require("telescope.pickers")
-        .new({}, {
-          prompt_title = "Harpoon",
-          finder = require("telescope.finders").new_table {
-            results = file_paths,
-          },
-          previewer = conf.file_previewer {},
-          sorter = conf.generic_sorter {},
-        })
-        :find()
+          .new({}, {
+            prompt_title = "Harpoon",
+            finder = require("telescope.finders").new_table {
+              results = file_paths,
+            },
+            previewer = conf.file_previewer {},
+            sorter = conf.generic_sorter {},
+          })
+          :find()
     end
 
     kmset("n", "<leader>ht", function()

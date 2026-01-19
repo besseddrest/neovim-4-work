@@ -25,7 +25,7 @@ map("n", "<leader>nh", "<CMD>noh<CR>", { desc = "Hide Search Matches" })
 
 -- (i)nlay hints
 map("n", "<leader>i", function()
-	vim.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  vim.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Inlay Hint Toggle" })
 
 -- (f)ind and (r)eplace
@@ -33,7 +33,7 @@ map("n", "<leader>fr", ":%s/", { desc = "Find/Search and Replace" })
 
 -- (o)pen (d)iagnostic float
 map("n", "<leader>od", function()
-	return vim.diagnostic.open_float({ width = 50 })
+  return vim.diagnostic.open_float({ width = 50 })
 end)
 
 map("n", "gd", "<cmd>lua vim.lsp.buf.preview()<CR>", { noremap = true, silent = true })
@@ -58,7 +58,7 @@ map("v", "<leader>/", "gc", { desc = "comment toggle", remap = true })
 
 -- terminals
 map({ "n", "t" }, "<A-t>", function()
-	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
+  require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
 end, { desc = "terminal toggle floating term" })
 -- map({ "n", "t" }, "<A-h>", function()
 --   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
@@ -102,50 +102,17 @@ map("n", "<C-s>", "<cmd>NvimTreeToggle<cr>", { desc = "Nvim Tree Toggle" })
 
 -- Telescope
 map("n", "<leader>G", "<cmd>lua Snacks.picker.grep()<CR>", { desc = "Live Grep" })
-map("n", "<leader>R", "<cmd>lua Snacks.picker.recent()<cr>", { desc = "Recent Picker" })
-map("n", "<leader>F", "<cmd>lua Snacks.picker.files()<cr>", { desc = "Find Files" })
-map("n", "<leader>B", "<cmd>lua Snacks.picker.buffers()<cr>", { desc = "Buffers List" })
-map("n", "<leader>L", "<cmd>lua Snacks.picker.highlights()<cr>", { desc = "Highlights" })
+map("n", "<leader>R", "<cmd>lua Snacks.picker.recent()<CR>", { desc = "Recent Buffers" })
+map("n", "<leader>F", "<cmd>lua Snacks.picker.files()<CR>", { desc = "Find Files" })
+map("n", "<leader>B", "<cmd>lua Snacks.picker.buffers()<CR>", { desc = "Buffers List" })
+map("n", "<leader>HL", "<cmd>lua Snacks.picker.highlights()<CR>", { desc = "Highlights" })
+map("n", "<leader>N", "<cmd>lua Snacks.picker.notify()<CR>", { desc = "Notifications" })
+map("n", "<leader>C", "<cmd>lua Snacks.picker.files({ cwd = vim.fn.stdpath('config')})<CR>", { desc = "Config" })
 map("n", "<leader>T", function()
-	require("nvchad.themes").open({
-		border = true,
-	})
-end, { desc = "Themes" })
-
--- map("n", "<leader>R", "<cmd>Telescope resume<CR>", { desc = "Resume Live Grep" })
--- map("n", "<leader>F", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
--- map("n", "<leader>T", "<cmd>Telescope themes<CR>", { desc = "Themes" })
--- map("n", "<leader>N", "<cmd>Telescope notify<CR>", { desc = "Notify" })
--- map("n", "<leader>L", "<cmd>Telescope highlights<CR>", { desc = "Highlights" })
--- map("n", "<leader>B", "<cmd>Telescope buffers<CR>", { desc = "Buffers List" })
-
--- Neogit
--- map("n", "<leader>ng", "<cmd>Neogit<CR>", { desc = "Neogit" })
-
--- NeoMiniMap
-map("n", "<leader>mm", "<cmd>Neominimap toggle<CR>", { desc = "NeoMiniMap Toggle" })
-
--- Blame
-map("n", "<leader>bt", "<cmd>BlameToggle<CR>", { desc = "Blame Toggle" })
+  require("nvchad.themes").open({
+    border = true,
+  })
+end, { desc = "Colorschemes" })
 
 -- Gitsigns
-map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns Preview Hunk" })
-
--- Tabufline
-map("n", "<C-t>n", "<cmd>tabnew<cr>", { desc = "Tab New" })
-map("n", "<C-t><BS>", "<cmd>tabclose<cr>", { desc = "Tab Close" })
-map("n", "<C-t>]", "<cmd>tabn<cr>", { desc = "Tab Next" })
-map("n", "<C-t>[", "<cmd>tabp<cr>", { desc = "Tab Prev" })
-
--- Buffers
--- map("n", "<tab>", function()
---   require("nvchad.tabufline").next()
--- end, { desc = "buffer goto next" })
---
--- map("n", "<S-tab>", function()
---   require("nvchad.tabufline").prev()
--- end, { desc = "buffer goto prev" })
---
--- map("n", "<leader><BS>", function()
---   require("nvchad.tabufline").close_buffer()
--- end, { desc = "buffer close" })
+map("n", "<leader>hu", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Gitsigns Preview Hunk" })

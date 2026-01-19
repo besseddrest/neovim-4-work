@@ -14,10 +14,10 @@ o.colorcolumn = "80"
 o.previewheight = 30
 
 -- editing
-o.tabstop = 4
-o.shiftwidth = 4
+-- o.tabstop = 2
+-- o.shiftwidth = 2
 o.expandtab = true
-o.softtabstop = 4
+-- o.softtabstop = 2
 o.wrap = true
 o.linebreak = true
 o.textwidth = 80
