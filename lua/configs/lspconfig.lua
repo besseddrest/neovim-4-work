@@ -125,10 +125,7 @@ local markdownSettings = {
         )
       end
     end,
-  },
-  root_markers = { ".git", ".obsidian", ".moxide.toml" },
-}
-
+  }
 local qmlSettings = {
     cmd = { "qmlls6" },
     filetypes = { "qml" },
