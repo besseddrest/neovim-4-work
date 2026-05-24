@@ -19,17 +19,5 @@ return {
             "dartls",
         },
     },
-    ensure_installed = {
-      "lua_ls",
-      "html",
-      "cssls",
-      "markdown_oxide",
-      "somesass_ls",
-      "jsonls",
-      "sqlls",
-      "ts_ls",
-      "bashls",
-      "qmlls",
-    },
-  },
 }
+
