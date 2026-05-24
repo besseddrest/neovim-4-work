@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "ts_ls", "jsonls", "markdown_oxide", "qmlls" }
+local servers = { "html", "cssls", "ts_ls", "jsonls", "markdown_oxide", "qmlls", "dartls", "astro" }
 
 local htmlSettings = {
   cmd = { "vscode-html-language-server", "--stdio" },
@@ -106,9 +106,8 @@ local jsonSettings = {
 }
 
 local markdownSettings = {
-  cmd = { "markdown-oxide" },
-  filetypes = { "markdown" },
-  on_attach = {
+    cmd = { "markdown-oxide" },
+    filetypes = { "markdown" },
     root_markers = { ".git", ".obsidian", ".moxide.toml" },
     filetypes = { "markdown" },
     cmd = { "markdown-oxide" },
@@ -131,9 +130,38 @@ local markdownSettings = {
 }
 
 local qmlSettings = {
-  cmd = { "qmlls" },
-  filetypes = { "qml", "qmljs" },
-  root_markers = { ".git" },
+    cmd = { "qmlls6" },
+    filetypes = { "qml" },
+}
+
+local dartSettings = {
+    cmd = { "dart", "language-server", "--protocol=lsp" },
+    filetypes = { "dart" },
+    root_markers = { "pubspec.yaml" },
+    init_options = {
+        onlyAnalyzeProjectsWithOpenFiles = true,
+        suggestFromUnimportedLibraries = true,
+        closingLabels = true,
+        outline = true,
+        flutterOutline = true,
+    },
+    settings = {
+        dart = {
+            completeFunctionCalls = true,
+            showTodos = true,
+        },
+    },
+}
+
+local astroSettings = {
+    cmd = { "astro-ls", "--stdio" },
+    filetypes = { "astro" },
+    root_markers = { "package.json", "tsconfig.json", "jsonconfig.json", ".git" },
+    -- before_init = function(_, config)
+    --     if config.init_options and config.init_options.typescript and not config.init_options.typescript.tsdk then
+    --         config.init_options.typescript.tsdk = util.get_typescript_server_path(config.root_dir)
+    --     end
+    -- end,
 }
 
 vim.lsp.config("html", htmlSettings)
@@ -142,32 +170,24 @@ vim.lsp.config("ts_ls", tsSettings)
 vim.lsp.config("jsonls", jsonSettings)
 vim.lsp.config("markdown_oxide", markdownSettings)
 vim.lsp.config("qmlls", qmlSettings)
+vim.lsp.config("dartls", dartSettings)
+vim.lsp.config("astro", astroSettings)
 vim.lsp.enable(servers)
 
 local augroup = vim.api.nvim_create_augroup
 local utils = require("utils")
 local buf_map = utils.buf_map
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if not client then
-      return
-    end
-    ---@diagnostic disable-next-line: missing-parameter
-    if client:supports_method("textDocument/formatting") then
-      -- Format the damn thing on save
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-        end,
-      })
-    end
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
-      vim.cmd("highlight @comment gui=italic cterm=italic")
-    end
-  end,
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then
+            return
+        end
+        if client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
+            vim.cmd("highlight @comment gui=italic cterm=italic")
+        end
+    end,
 })
 
 -- not autocmd but find a place for this later
